@@ -67,7 +67,12 @@
             height: 80px;
             margin-left: 20px;
         }
-
+        .sosial-media a{
+            color: white;
+        }
+        .sosial-media a:hover{
+            color: #f9f9f9;
+        }
     </style>
 </head>
 
@@ -84,7 +89,7 @@
                 <li class="nav-item"><a class="nav-link" href="#">Kontak</a></li>
             </ul>
         </div>
-        <a class="btn btn-login" href="#">Login</a>
+        <a class="btn btn-login" href="<?php base_url()?>/auth">Login</a>
     </nav>
 
     <!-- Konten Utama -->
@@ -118,12 +123,12 @@
 
                 <div class="col-md-4 social-media ">
                     <p>Ikuti Kami</p>
-                    <div>
+                    <!-- <div> -->
                         <a href="#" ><i class="fab fa-instagram "></i> @dpmpa.pekalongankota</a><br>
                         <a href="#" ><i class="fab fa-twitter "></i> @dpmpa</a><br>
                         <a href="#" ><i class="fab fa-facebook "></i> Dpmppa Kota Pekalongan</a><br>
                         <a href="#" ><i class="fab fa-youtube "></i> DPMPPA Kota Pekalongan</a>
-                    </div>
+                    <!-- </div> -->
                 </div>
             </div>
         <!-- </div> -->

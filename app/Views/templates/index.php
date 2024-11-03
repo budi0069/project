@@ -28,7 +28,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-         <?php include "layout/sidebar.php" ?>
+         <?php include "sidebar.php" ?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -38,7 +38,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-               <?php include "layout/topbar.php" ?>
+               <?php include "topbar.php" ?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
