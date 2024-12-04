@@ -13,36 +13,36 @@
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item active">
-    <a class="nav-link" href="index.html">
+    <a class="nav-link" href="<?php base_url()?>/admin">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
 </li>
 
 <!-- Nav Item - Notifications -->
 <li class="nav-item">
-    <a class="nav-link" href="charts.html">
+    <a class="nav-link" href="<?php base_url()?>/admin/notifikasi">
         <i class="fas fa-fw fa-bell"></i>
         <span>Notifications</span></a>
         </li>
 <!-- Nav Item - Data Laporan -->
 <li class="nav-item">
-    <a class="nav-link" href="charts.html">
+    <a class="nav-link" href="<?php base_url()?>/admin/data_laporan">
         <i class="fas fa-fw fa-file-invoice"></i>
         <span>Data Laporan</span></a>
         </li>
         
 <!-- Nav Item - Penugasan -->
 <li class="nav-item">
-    <a class="nav-link" href="tables.html">
+    <a class="nav-link" href="<?php base_url()?>/admin/penugasan">
         <i class="fas fa-fw fa-briefcase"></i>
         <span>Penugasan</span></a>
 </li>
 
 <!-- Nav Item -Cetak Laporan -->
 <li class="nav-item">
-    <a class="nav-link" href="tables.html">
+    <a class="nav-link" href="<?php base_url()?>/admin/laporan">
         <i class="fas fa-fw fa-briefcase"></i>
-        <span>Cetak Laporan</span></a>
+        <span>Laporan</span></a>
 </li>
 
 <!-- Divider -->
@@ -50,7 +50,7 @@
 
 <!-- Nav Item -Logout -->
 <li class="nav-item">
-    <a class="nav-link" href="tables.html">
+    <a class="nav-link" href="<?php base_url()?>/admin/logout">
         <i class="fas fa-fw fa-sign-out-alt"></i>
         <span>Logout</span></a>
 </li>

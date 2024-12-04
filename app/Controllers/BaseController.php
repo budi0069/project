@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\DataLaporan;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
@@ -21,6 +22,12 @@ use Psr\Log\LoggerInterface;
  */
 abstract class BaseController extends Controller
 {
+
+    protected $data_laporan;
+    public function __construct()
+    {
+        $this->data_laporan = new DataLaporan();
+    }
     /**
      * Instance of the main Request object.
      *
