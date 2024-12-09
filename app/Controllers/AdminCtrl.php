@@ -20,7 +20,7 @@ class AdminCtrl extends BaseController
         $kelurahan = new KelurahanModel();
         $user = new UsersModel();
         $laporan = new DataLaporan();
-        $filteredLaporan = $laporan->whereIn('status', ['terverifikasi', 'belum', 'proses', 'penugasan', 'selesai'])->findAll();
+        $filteredLaporan = $laporan->whereIn('status', ['terverifikasi', 'belum', 'proses', 'penugasan'])->findAll();
         $data = [];
         foreach ($filteredLaporan as $key => $value) {
             $data[$key]['kode_laporan'] = $value['kode_laporan'];
@@ -270,7 +270,20 @@ class AdminCtrl extends BaseController
     public function laporan()
     {
         $laporan = new DataLaporan();
-        $data = $laporan->getVerifiedReport();
+        $user = new UsersModel();
+        $kelurahan = new KelurahanModel();
+        $selesai = $laporan->where('status', 'selesai');
+        $data = [];
+        foreach ($selesai->findAll() as $key => $value) {
+            $data[$key]['kode_laporan'] = $value['kode_laporan'];
+            $data[$key]['id_user'] = $value['id_user'];
+            $data[$key]['id_kelurahan'] = $value['id_kelurahan'];
+            $data[$key]['judul_laporan'] = $value['judul_laporan'];
+            $data[$key]['status'] = $value['status'];
+            $data[$key]['tanggal_laporan'] = $value['tanggal_laporan'];
+            $data[$key]['nama_user'] = $user->where('id_user', $value['id_user'])->first()['nama_user'];
+            $data[$key]['nama_kelurahan'] = $kelurahan->where('id_kelurahan', $value['id_kelurahan'])->first()['nama_kelurahan'];
+        }
         $data = [
             'data' => $data
         ];

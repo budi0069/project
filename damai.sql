@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2024 at 03:51 AM
+-- Generation Time: Dec 04, 2024 at 03:41 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -31,23 +31,25 @@ CREATE TABLE `data_laporan` (
   `kode_laporan` char(6) NOT NULL,
   `id_user` int(11) DEFAULT NULL,
   `id_kelurahan` int(11) NOT NULL,
+  `id_pelayanan` int(11) NOT NULL,
   `judul_laporan` enum('Kekerasan Fisik','Kekerasan Psikis/Emosional','Kekerasan Seksual','Kekerasan Ekonomi','Kekerasan Digital','Kekerasan Dalam Rumah Tangga (KDRT)','Kekerasan di Sekolah','Eksploitasi Anak','Kekerasan dalam Pengasuhan') NOT NULL,
   `deskripsi_laporan` varchar(255) NOT NULL,
   `deskripsi_data_korban` varchar(255) NOT NULL,
-  `status` enum('belum','proses','selesai') NOT NULL,
+  `status` enum('baru','terverifikasi','penugasan','proses','selesai','ditolak') NOT NULL,
   `tanggal_laporan` date NOT NULL DEFAULT current_timestamp(),
-  `lokasi_kejadian` varchar(255) NOT NULL
+  `alasan` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `data_laporan`
 --
 
-INSERT INTO `data_laporan` (`kode_laporan`, `id_user`, `id_kelurahan`, `judul_laporan`, `deskripsi_laporan`, `deskripsi_data_korban`, `status`, `tanggal_laporan`, `lokasi_kejadian`) VALUES
-('LP0001', 4, 2, 'Kekerasan Fisik', 'blabla', 'ckanslck', 'belum', '2024-11-26', 'ckslacma'),
-('LP0002', NULL, 0, 'Kekerasan Psikis/Emosional', 'blablaxascjkavbsureiuhbbscasnjknasojcoifjoeicjzxxsacdavdv', 'BUDI NGOK NGOK PASIR SARI', 'belum', '2024-11-26', 'degayu'),
-('LP0003', 0, 2, 'Kekerasan Fisik', 'blabla', 'BUDI NGOK NGOK PASIR SARI', 'belum', '2024-11-26', ''),
-('LP0004', 0, 2, 'Kekerasan Fisik', 'blabla', 'ckanslck', 'belum', '2024-11-26', 'KRATON');
+INSERT INTO `data_laporan` (`kode_laporan`, `id_user`, `id_kelurahan`, `id_pelayanan`, `judul_laporan`, `deskripsi_laporan`, `deskripsi_data_korban`, `status`, `tanggal_laporan`, `alasan`) VALUES
+('LP0002', 6, 2, 0, 'Kekerasan Psikis/Emosional', 'blablaxascjkavbsureiuhbbscasnjknasojcoifjoeicjzxxsacdavdv', 'BUDI NGOK NGOK PASIR SARI', 'penugasan', '2024-11-26', ''),
+('LP0003', 4, 2, 0, 'Kekerasan Fisik', 'blabla', 'BUDI NGOK NGOK PASIR SARI', 'ditolak', '2024-11-26', 'laporan tidak valid'),
+('LP0004', 5, 2, 0, 'Kekerasan Fisik', 'blabla', 'ckanslck', 'ditolak', '2024-11-26', 'laporan tidak valid'),
+('LP0005', 7, 2, 0, 'Kekerasan Psikis/Emosional', 'hfdhdh', ' vkjsdkvj', 'penugasan', '2024-11-29', ''),
+('LP0011', 4, 2, 0, 'Kekerasan Fisik', 'blabla', 'hdfhd', 'proses', '2024-11-30', '');
 
 -- --------------------------------------------------------
 
@@ -89,9 +91,16 @@ CREATE TABLE `pelayanan` (
 CREATE TABLE `penugasan` (
   `id_penugasan` int(11) NOT NULL,
   `kode_laporan` char(6) NOT NULL,
-  `tanggal_penugasan` date NOT NULL,
-  `petugas_penugasan` varchar(255) NOT NULL
+  `tanggal_penugasan` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `penugasan`
+--
+
+INSERT INTO `penugasan` (`id_penugasan`, `kode_laporan`, `tanggal_penugasan`) VALUES
+(8, 'LP0002', '2024-12-04'),
+(9, 'LP0005', '2024-12-04');
 
 -- --------------------------------------------------------
 
@@ -117,20 +126,24 @@ CREATE TABLE `progres_laporan` (
 CREATE TABLE `users` (
   `id_user` int(11) NOT NULL,
   `nama_user` varchar(255) NOT NULL,
+  `nik` varchar(16) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `role` enum('masyarakat','kelurahan','dpmppa') NOT NULL
+  `role` enum('masyarakat','kelurahan','dpmppa') NOT NULL,
+  `jenis_kelamin` enum('laki-laki','perempuan') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id_user`, `nama_user`, `username`, `password`, `role`) VALUES
-(4, 'Rina', 'rinams', '$2y$10$qfA2sfbDmjeePmxWVZoUQOuK3lYQmKJoBFYuCFyNmPSJdSPxBdKkW', 'masyarakat'),
-(5, 'DPMPPA', 'admin_dpmppa', '$2y$10$/Q5LIL1ZKL7CQRf/L6ApQuoDLvAJZEwMTKl4mq1p8iF.zcatZcV82', 'dpmppa'),
-(6, 'Degayu', 'admin_degayu', '$2y$10$kvBzm82HUgl4ay7A2SCn8e1oPzAUCElnCjISkAjM5hUXiUvUJN5Z6', 'kelurahan'),
-(7, 'Budi', 'buto', '$2y$10$QE8bB89Spe4Hkc9QQ4UXJ.T1eWD8jA2/uzOUu4vgLux6efCMn1Sia', 'masyarakat');
+INSERT INTO `users` (`id_user`, `nama_user`, `nik`, `username`, `password`, `role`, `jenis_kelamin`) VALUES
+(4, 'Rina', '', 'rinams', '$2y$10$qfA2sfbDmjeePmxWVZoUQOuK3lYQmKJoBFYuCFyNmPSJdSPxBdKkW', 'masyarakat', 'laki-laki'),
+(5, 'DPMPPA', '', 'admin_dpmppa', '$2y$10$/Q5LIL1ZKL7CQRf/L6ApQuoDLvAJZEwMTKl4mq1p8iF.zcatZcV82', 'dpmppa', 'laki-laki'),
+(6, 'Degayu', '', 'admin_degayu', '$2y$10$kvBzm82HUgl4ay7A2SCn8e1oPzAUCElnCjISkAjM5hUXiUvUJN5Z6', 'kelurahan', 'laki-laki'),
+(7, 'Budi', '', 'buto', '$2y$10$QE8bB89Spe4Hkc9QQ4UXJ.T1eWD8jA2/uzOUu4vgLux6efCMn1Sia', 'masyarakat', 'laki-laki'),
+(13, 'Rina Mulia Sari', '3326145504030001', 'rinams_', '$2y$10$4PAmEaowWdhXkMx.3UOAaOlxs4EmuvNpoHWUAo9xK9kGUKsfFdVki', 'masyarakat', 'laki-laki'),
+(14, 'Sari', '3326145504030003', 'sari_', '$2y$10$/vGbTdwyt34pRac0fRevDugLwOLcLmaZP07CikaKSVVl3S.d/a5Ai', 'masyarakat', 'laki-laki');
 
 --
 -- Indexes for dumped tables
@@ -141,8 +154,7 @@ INSERT INTO `users` (`id_user`, `nama_user`, `username`, `password`, `role`) VAL
 --
 ALTER TABLE `data_laporan`
   ADD PRIMARY KEY (`kode_laporan`),
-  ADD KEY `data_laporan_ibfk_1` (`id_kelurahan`),
-  ADD KEY `data_laporan_ibfk_2` (`id_user`);
+  ADD KEY `data_laporan_ibfk_1` (`id_kelurahan`);
 
 --
 -- Indexes for table `kelurahan`
@@ -197,7 +209,7 @@ ALTER TABLE `pelayanan`
 -- AUTO_INCREMENT for table `penugasan`
 --
 ALTER TABLE `penugasan`
-  MODIFY `id_penugasan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_penugasan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `progres_laporan`
@@ -209,7 +221,7 @@ ALTER TABLE `progres_laporan`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables

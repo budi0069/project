@@ -41,7 +41,7 @@ class Login extends BaseController
                         return redirect()->to('/admin');
                         break;
                         case 'kelurahan':
-                            return redirect()->to('/admin');
+                            return redirect()->to('/admin_kelurahan');
                             break;
                             case 'masyarakat':
                             // dd($sessionData);

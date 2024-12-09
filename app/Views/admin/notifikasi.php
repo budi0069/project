@@ -2,7 +2,7 @@
 <?php $this->section('content') ?>
 <div class="card ml-4 mr-4">
     <div class="card-header bg-primary">
-        <h3 class="ml-5 text-white">Notifikasi</h3>
+        <h6 class="m-0 font-weight-bold text-white">Notifikasi</h6>
     </div>
     <div class="card-body">
         <table class="table table-striped">

@@ -2,8 +2,8 @@
 <?php $this->section('content') ?>
 <div class="container">
   <div class="card">
-    <div class="card-header">
-    <h6 class="m-0 font-weight-bold text-primary">Data Laporan</h6>
+    <div class="card-header bg-primary">
+    <h6 class="m-0 font-weight-bold text-white">Data Laporan</h6>
     </div>
     <div class="card-body">
 
@@ -44,6 +44,7 @@
                 ?>
               </td>
               <td>
+                <?php ?>
                 <a class="btn btn-sm btn-success" href="<?php base_url()?>/admin/data_laporan/detail/<?=$datalaporan['kode_laporan']?>"><i class="fas fa-eye"></i></a>
                 <a class="btn btn-sm btn-warning" href="<?php base_url() ?>/admin/data_laporan/proses/<?= $datalaporan['kode_laporan'] ?>" onclick="return confirm('Apakah Anda Yakin Ingin Memproses Penugasan <?= $datalaporan['kode_laporan'] ?>?')"><i class="fas fa-project-diagram"></i></a>
                 <a class="btn btn-sm btn-primary" href="<?php base_url() ?>/admin/penugasan/kirim/<?= $datalaporan['kode_laporan'] ?>" onclick="return confirm('Apakah Anda Yakin Ingin Mengirim Penugasan <?= $datalaporan['kode_laporan'] ?> Ke Kelurahan Degayu?')"><i class="fa fa-paper-plane"></i></a>

@@ -13,34 +13,33 @@
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item active">
-    <a class="nav-link" href="<?php base_url()?>/admin">
+    <a class="nav-link" href="<?php base_url()?>/admin_kelurahan">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
 </li>
 
 <!-- Nav Item - Notifications -->
 <li class="nav-item">
-    <a class="nav-link" href="<?php base_url()?>/admin/notifikasi">
+    <a class="nav-link" href="<?php base_url()?>/admin_kelurahan/notifikasi">
         <i class="fas fa-fw fa-bell"></i>
         <span>Notifications</span></a>
         </li>
 <!-- Nav Item - Data Laporan -->
 <li class="nav-item">
-    <a class="nav-link" href="<?php base_url()?>/admin/data_laporan">
+    <a class="nav-link" href="<?php base_url()?>/admin_kelurahan/data_laporan">
         <i class="fas fa-fw fa-file-invoice"></i>
         <span>Data Laporan</span></a>
         </li>
         
 <!-- Nav Item - Penugasan -->
 <li class="nav-item">
-    <a class="nav-link" href="<?php base_url()?>/admin/penugasan">
+    <a class="nav-link" href="<?php base_url()?>/admin_kelurahan/rujukan">
         <i class="fas fa-fw fa-briefcase"></i>
-        <span>Penugasan</span></a>
+        <span>Rujukan</span></a>
 </li>
-
 <!-- Nav Item -Cetak Laporan -->
 <li class="nav-item">
-    <a class="nav-link" href="<?php base_url()?>/admin/laporan">
+    <a class="nav-link" href="<?php base_url()?>/admin_kelurahan/laporan">
         <i class="fas fa-fw fa-briefcase"></i>
         <span>Laporan Selesai</span></a>
 </li>
@@ -50,7 +49,7 @@
 
 <!-- Nav Item -Logout -->
 <li class="nav-item">
-    <a class="nav-link" href="<?php base_url()?>/admin/logout">
+    <a class="nav-link" href="<?php base_url()?>/admin_kelurahan/logout">
         <i class="fas fa-fw fa-sign-out-alt"></i>
         <span>Logout</span></a>
 </li>

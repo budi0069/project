@@ -22,7 +22,14 @@ $routes->get('/masyarakat/laporan_saya', 'Home::laporan_saya');
 $routes->get('/masyarakat/profil', 'Home::profil');
 $routes->get('/masyarakat/logout', 'Login::logout');
 
-// Admin
+// Admin Kelurahan
+$routes->get('/admin_kelurahan', 'KelurahanCtrl::index');
+$routes->get('/admin_kelurahan/notifikasi', 'KelurahanCtrl::notifikasi');
+$routes->get('/admin_kelurahan/data_laporan', 'KelurahanCtrl::data_laporan');
+$routes->get('/admin_kelurahan/rujukan', 'KelurahanCtrl::rujukan');
+$routes->get('/admin_kelurahan/laporan', 'KelurahanCtrl::laporan');
+
+// Admin DPMPPA
 $routes->get('/admin', 'AdminCtrl::index',['filter' => 'adminfilter','userfilters']);
 $routes->get('/admin/data_laporan', 'AdminCtrl::data_laporan');
 $routes->get('/admin/data_laporan/tampilForm', 'AdminCtrl::tampilForm');
