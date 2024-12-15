@@ -20,7 +20,7 @@ class AdminCtrl extends BaseController
         $kelurahan = new KelurahanModel();
         $user = new UsersModel();
         $laporan = new DataLaporan();
-        $filteredLaporan = $laporan->whereIn('status', ['terverifikasi', 'belum', 'proses', 'penugasan'])->findAll();
+        $filteredLaporan = $laporan->whereIn('status', ['Diproses DPMPPA'])->findAll();
         $data = [];
         foreach ($filteredLaporan as $key => $value) {
             $data[$key]['kode_laporan'] = $value['kode_laporan'];
@@ -78,7 +78,7 @@ class AdminCtrl extends BaseController
             'deskripsi_laporan' => $this->request->getVar('deskripsi_laporan'),
             'deskripsi_data_korban' => $this->request->getVar('deskripsi_data_korban'),
             'id_kelurahan' => $this->request->getVar('id_kelurahan'),
-            'status' => 'belum',
+            'status' => 'terverifikasi',
             'tanggal_laporan' => $this->request->getVar('tanggal_laporan'),
             // 'lokasi_kejadian' => $this->request->getVar('lokasi_kejadian')
         ];
@@ -149,7 +149,7 @@ class AdminCtrl extends BaseController
         $kelurahan = new KelurahanModel();
         $user = new UsersModel();
         $laporan = new DataLaporan();
-        $filteredLaporan = $laporan->whereIn('status', ['penugasan'])->findAll();
+        $filteredLaporan = $laporan->whereIn('status', ['Penugasan ke Kelurahan'])->findAll();
         $data = [];
         foreach ($filteredLaporan as $key => $value) {
             $data[$key]['kode_laporan'] = $value['kode_laporan'];
@@ -193,7 +193,7 @@ class AdminCtrl extends BaseController
             // ]);
             // Update data status dari tabel laporan
             $dataLaporan->update($kode_laporan['kode_laporan'], [
-                'status' => 'penugasan',
+                'status' => 'Penugasan ke Kelurahan',
             ]);
             // tambah data ke tabel penugasan
             $penugasanLaporan->insert([
@@ -212,7 +212,7 @@ class AdminCtrl extends BaseController
         $kelurahan = new KelurahanModel();
 
         //menampilkan laporan dengan status baru
-        $verifikasi = $laporan->where('status', 'baru');
+        $verifikasi = $laporan->where('status', 'Dirujuk ke DPMPPA');
         $data = [];
         foreach ($verifikasi->findAll() as $key => $value) {
             $data[$key]['kode_laporan'] = $value['kode_laporan'];
@@ -253,7 +253,7 @@ class AdminCtrl extends BaseController
     public function verifikasi($kode_laporan)
     {
         $laporan = new DataLaporan();
-        $laporan->update($kode_laporan, ['status' => 'terverifikasi']);
+        $laporan->update($kode_laporan, ['status' => 'Diproses DPMPPA']);
         return redirect()->to('/admin/notifikasi')->with('message', 'Laporan berhasil diverifikasi!');
     }
     public function tolak($kode_laporan)

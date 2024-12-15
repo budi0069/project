@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2024 at 03:41 PM
+-- Generation Time: Dec 09, 2024 at 07:58 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -45,11 +45,12 @@ CREATE TABLE `data_laporan` (
 --
 
 INSERT INTO `data_laporan` (`kode_laporan`, `id_user`, `id_kelurahan`, `id_pelayanan`, `judul_laporan`, `deskripsi_laporan`, `deskripsi_data_korban`, `status`, `tanggal_laporan`, `alasan`) VALUES
-('LP0002', 6, 2, 0, 'Kekerasan Psikis/Emosional', 'blablaxascjkavbsureiuhbbscasnjknasojcoifjoeicjzxxsacdavdv', 'BUDI NGOK NGOK PASIR SARI', 'penugasan', '2024-11-26', ''),
-('LP0003', 4, 2, 0, 'Kekerasan Fisik', 'blabla', 'BUDI NGOK NGOK PASIR SARI', 'ditolak', '2024-11-26', 'laporan tidak valid'),
+('LP0002', 6, 2, 0, 'Kekerasan Psikis/Emosional', 'blablaxascjkavbsureiuhbbscasnjknasojcoifjoeicjzxxsacdavdv', 'BUDI NGOK NGOK PASIR SARI', '', '2024-11-26', ''),
+('LP0003', 4, 2, 0, 'Kekerasan Fisik', 'blabla', 'BUDI NGOK NGOK PASIR SARI', 'selesai', '2024-11-26', 'laporan tidak valid'),
 ('LP0004', 5, 2, 0, 'Kekerasan Fisik', 'blabla', 'ckanslck', 'ditolak', '2024-11-26', 'laporan tidak valid'),
 ('LP0005', 7, 2, 0, 'Kekerasan Psikis/Emosional', 'hfdhdh', ' vkjsdkvj', 'penugasan', '2024-11-29', ''),
-('LP0011', 4, 2, 0, 'Kekerasan Fisik', 'blabla', 'hdfhd', 'proses', '2024-11-30', '');
+('LP0011', 4, 2, 0, 'Kekerasan Fisik', 'blabla', 'hdfhd', 'proses', '2024-11-30', ''),
+('LP0012', 13, 2, 0, 'Kekerasan Psikis/Emosional', 'blabla', 'blabla', 'proses', '2024-12-05', '');
 
 -- --------------------------------------------------------
 

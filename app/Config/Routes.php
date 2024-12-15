@@ -25,9 +25,12 @@ $routes->get('/masyarakat/logout', 'Login::logout');
 // Admin Kelurahan
 $routes->get('/admin_kelurahan', 'KelurahanCtrl::index');
 $routes->get('/admin_kelurahan/notifikasi', 'KelurahanCtrl::notifikasi');
+$routes->get('/admin_kelurahan/notifikasi/detail/(:any)', 'KelurahanCtrl::detailNotifikasi/$1');
+$routes->get('/admin_kelurahan/verifikasi/(:any)', 'KelurahanCtrl::verifikasi/$1');
 $routes->get('/admin_kelurahan/data_laporan', 'KelurahanCtrl::data_laporan');
 $routes->get('/admin_kelurahan/rujukan', 'KelurahanCtrl::rujukan');
 $routes->get('/admin_kelurahan/laporan', 'KelurahanCtrl::laporan');
+$routes->get('/admin_kelurahan/logout', 'Login::logout');
 
 // Admin DPMPPA
 $routes->get('/admin', 'AdminCtrl::index',['filter' => 'adminfilter','userfilters']);

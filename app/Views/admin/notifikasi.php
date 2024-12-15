@@ -27,7 +27,7 @@
                             <td><?= $notif['kode_laporan'] ?></td>
                             <td><?= $notif['nama_user'] ?></td>
                             <td><?= $notif['judul_laporan'] ?></td>
-                            <td><span class="badge badge-info">Baru</span></td>
+                            <td><span class="badge badge-info">Dirujuk ke DPMPPA</span></td>
                             <td><?= date('d M Y', strtotime($notif['tanggal_laporan'])) ?></td>
                             <td><?= $notif['nama_kelurahan'] ?></td>
                             <td>
