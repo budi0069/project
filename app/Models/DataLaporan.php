@@ -8,7 +8,7 @@ class DataLaporan extends Model
 {
     protected $table            = 'data_laporan';
     protected $primaryKey       = 'kode_laporan';
-    protected $allowedFields    = ['kode_laporan', 'id_user', 'id_kelurahan', 'judul_laporan', 'deskripsi_laporan', 'deskripsi_data_korban', 'status', 'tanggal_laporan', 'lokasi_kejadian','alasan'];
+    protected $allowedFields    = ['kode_laporan', 'id_user', 'id_kelurahan', 'judul_laporan', 'deskripsi_laporan', 'deskripsi_data_korban', 'status', 'tanggal_laporan', 'asal_laporan', 'lokasi_kejadian','alasan'];
 
     //untuk mendapatkan kode terakhir
     public function getLastKodeLaporan()

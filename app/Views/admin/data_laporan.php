@@ -34,12 +34,10 @@
               <td><?= $datalaporan['nama_kelurahan']?></td>
               <td>
                 <?php
-                if ($datalaporan['status'] == 'terverifikasi') {
-                  echo '<span class="badge badge-primary">Terverifikasi</span>';
-                } elseif ($datalaporan['status'] == 'proses') {
-                  echo '<span class="badge badge-warning">Proses</span>';
-                } elseif ($datalaporan['status'] == 'penugasan') {
-                  echo '<span class="badge badge-dark">Penugasan</span>';
+                if ($datalaporan['status'] == 'Diproses DPMPPA') {
+                  echo '<span class="badge badge-warning">Diproses DPMPPA</span>';
+                } elseif ($datalaporan['status'] == 'Diproses Kelurahan') {
+                  echo '<span class="badge badge-dark">Diproses Kelurahan</span>';
                 }
                 ?>
               </td>

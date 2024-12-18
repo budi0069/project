@@ -83,6 +83,7 @@ class Home extends BaseController
             'id_kelurahan' => $this->request->getVar('id_kelurahan'),
             'status' => 'Menunggu Verifikasi',
             'tanggal_laporan' => $this->request->getVar('tanggal_laporan'),
+            'asal_laporan' => 'Kelurahan'
             // 'lokasi_kejadian' => $this->request->getVar('lokasi_kejadian')
         ];
         // dd($data);

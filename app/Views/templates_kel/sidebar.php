@@ -41,7 +41,7 @@
 <li class="nav-item">
     <a class="nav-link" href="<?php base_url()?>/admin_kelurahan/laporan">
         <i class="fas fa-fw fa-briefcase"></i>
-        <span>Laporan Selesai</span></a>
+        <span>Rekap Laporan</span></a>
 </li>
 
 <!-- Divider -->

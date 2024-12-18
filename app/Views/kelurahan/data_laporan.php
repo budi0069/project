@@ -6,7 +6,7 @@
     </div>
     <div class="card-body">
         <div class="d-flex justify-content-end mb-3">
-            <a class="btn btn-sm btn-success" href="<?php base_url() ?>/admin/data_laporan/tampilForm">Tambah <i class="fa fa-plus"></i></a>
+            <a class="btn btn-sm btn-success" href="<?php base_url() ?>/admin_kelurahan/data_laporan/tampilForm">Tambah <i class="fa fa-plus"></i></a>
         </div>
         <table class="table table-striped">
             <thead>
@@ -41,16 +41,10 @@
                             ?>
                         </td>
                         <td>
-                            <!-- jika status diproses kelurahan yang tampil hanya memunculkan tombol detail dan proses -->
-                            <?php if ($datalaporan['status'] == 'Diproses Kelurahan'){ ?>
-                                <a class="btn btn-sm btn-success" href="<?php base_url() ?>/admin/data_laporan/detail/<?= $datalaporan['kode_laporan'] ?>"><i class="fas fa-eye"></i></a>
-                            <!-- menampilkan tombol proses -->
-                            <a class="btn btn-sm btn-warning" href="<?php base_url() ?>/admin/data_laporan/proses/<?= $datalaporan['kode_laporan'] ?>"><i class="fas fa-project-diagram"></i></a>
-                            <?php }if($datalaporan['status'] == 'Terverifikasi'){ ?>
-                                <a class="btn btn-sm btn-success" href="<?php base_url() ?>/admin/data_laporan/detail/<?= $datalaporan['kode_laporan'] ?>"><i class="fas fa-eye"></i></a>
-                                <a class="btn btn-sm btn-warning" href="<?php base_url() ?>/admin/data_laporan/proses/<?= $datalaporan['kode_laporan'] ?>" onclick="return confirm('Apakah Anda Yakin Ingin Memproses Penugasan <?= $datalaporan['kode_laporan'] ?>?')"><i class="fas fa-project-diagram"></i></a>
-                                <a class="btn btn-sm btn-primary" href="<?php base_url() ?>/admin/penugasan/kirim/<?= $datalaporan['kode_laporan'] ?>" onclick="return confirm('Apakah Anda Yakin Ingin Mengirim Penugasan <?= $datalaporan['kode_laporan'] ?> Ke Kelurahan Degayu?')"><i class="fa fa-paper-plane"></i></a>
-                            <?php }?>
+                            <?php ?>
+                            <a class="btn btn-sm btn-success" href="<?php base_url() ?>/admin_kelurahan/data_laporan/detail/<?= $datalaporan['kode_laporan'] ?>"><i class="fas fa-eye"></i></a>
+                            <a class="btn btn-sm btn-warning" href="<?php base_url() ?>/admin_kelurahan/data_laporan/proses/<?= $datalaporan['kode_laporan'] ?>" data-toggle="modal" data-target="#modalProses"><i class="fas fa-project-diagram"></i></a>
+                            <a class="btn btn-sm btn-primary" href="<?php base_url() ?>/admin_kelurahan/rujukan/kirim/<?= $datalaporan['kode_laporan'] ?>" onclick="return confirm('Apakah Anda Yakin Ingin Mengirim Rujukan <?= $datalaporan['kode_laporan'] ?> Ke DPMPPA?')"><i class="fa fa-paper-plane"></i></a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -58,4 +52,48 @@
         </table>
     </div>
 </div>
+<!-- Modal Proses-->
+<div class="modal fade" id="modalProses" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form action="">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Kode Laporan</label>
+                            <input type="text" class="form-control" placeholder="<?= $datalaporan['kode_laporan']?>" readonly>
+                        </div>
+                        <div class="col">
+                            <label for="">Nama Pelapor</label>
+                            <input type="text" class="form-control" placeholder="<?= $datalaporan['nama_user']?>" readonly>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="">Pelayanan</label>
+                                <select name="" id="" class="form-control">
+                                    <?php foreach ($pelayanan as $pelayanan): ?>
+                                    <option value="<?= $pelayanan['pelayanan'] ?>"><?= $pelayanan['pelayanan'] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <?php $this->endSection() ?>

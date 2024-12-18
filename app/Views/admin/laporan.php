@@ -6,6 +6,23 @@
             <h6 class="m-0 font-weight-bold text-primary">Data Laporan Selesai</h6>
         </div>
         <div class="card-body">
+        <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <input type="text" name="tgl_awal" class="form-control" placeholder="Pilih Tanggal Awal" onfocus="this.type='date'" onblur="this.type='text'">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <input type="text" name="tgl_akhir" class="form-control" placeholder="Pilih Tanggal Akhir" onfocus="this.type='date'" onblur="this.type='text'">
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex justify-content-end">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-block btn-danger"><i class="fa fa-print"></i>Cetak</button>
+                    </div>
+                </div>
+            </div>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -17,7 +34,6 @@
                             <th>Lokasi Kejadian</th>
                             <th>Tanggal Laporan</th>
                             <th>Status</th>
-                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
